@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>TryHackMe | Attack Surface Reduction</title>
+    <meta
+      name="description"
+      content="TryHackMe is a free online platform for learning cyber security, using hands-on exercises and labs, all through your browser!"
+    />
+    <meta
+      name="og:description"
+      content="TryHackMe is a free online platform for learning cyber security, using hands-on exercises and labs, all through your browser!"
+    />
+    <meta
+      name="keywords"
+      content="cyber,security,cyber security,cyber security training,coding,computer,bitcoin,hacking,hackers,hacks,hack,exploits,keylogger,learn,poc"
+    />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+
+    <meta property="og:site_name" content="TryHackMe" />
+    <meta property="og:title" content="TryHackMe | Cyber Security Training" />
+    <meta
+      property="og:image"
+      content="https://tryhackme.com/img/meta/default.png"
+    />
+    <meta property="og:url" content="https://tryhackme.com" />
+    <meta
+      name="twitter:image"
+      content="https://tryhackme.com/img/meta/default.png"
+    />
+    <meta
+      property="og:description"
+      content="An online platform for learning and teaching cyber security, all through your browser."
+    />
+    <meta
+      title="author"
+      content="Muhammad Zaryaab Shahbaz (zariab64@gmail.com)"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://assets.tryhackme.com/img/favicon.png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="content" class="container py-4">
+      <div class="row">
+        <div class="col-sm-12 col-md-2">
+          <div class="text-center h-100 d-flex align-items-center">
+            <img
+              class="logo w-100"
+              alt="Logo"
+              src="https://assets.tryhackme.com/img/logo/tryhackme_logo_full.svg"
+            />
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-10">
+          <h2 class="text-center my-2">Attack Surface Reduction</h2>
+          <p class="text-center">
+            It's time to save <b>Blue team Elf</b> from <b>Bandit Yeti</b>. Each
+            correct answer will add armour to the Blue team Elf which will
+            protect against the arrows of Bandit Yeti.
+            <u>Only you can save the Elf now!</u>
+          </p>
+          <p class="text-center">
+            Match the attack vector with the relevant ASR Technique.
+          </p>
+        </div>
+        <div class="col-md-12 text-center">
+          <hr class="my-2" />
+          <div
+            class="war-zone w-100 py-4 my-2 rounded text-center"
+            style="background: #719CF9;"
+          >
+            War Zone
+          </div>
+        </div>
+        <div
+          class="col-md-12 d-flex align-items-center justify-content-between mb-2"
+        >
+          <p class="mb-0">Progress: <span id="puzzle-progress">--</span></p>
+          <p class="mb-0 ps-4 pe-2 question-count-block">
+            Correct: <span id="question-number">0</span>/6
+          </p>
+        </div>
+        <div class="col-md-12 wrapper" id="wrapper">
+          <div class="section-header d-flex align-items-center text-center">
+            <h3 class="w-50 mb-0 py-1">Attack Vector</h3>
+            <h3 class="w-50 mb-0 py-1">ASR Technique</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="reward" class="container py-4 d-none">
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <div class="flag-container d-flex flex-column w-100 my-2">
+            <div
+              class="flag-header d-flex align-items-center justify-content-center"
+            >
+              <h5 class="mb-0">Flag</h5>
+            </div>
+            <div class="flag-content text-center">
+              <p class="mb-0" id="flag">
+                VEhNe0lUJ1MgQSBZM1QxIENIUjEkVE1BJH0=
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12 text-center mt-3">
+          <p>
+            While attack surface reduction helps, there is always a danger of a
+            successful attack
+          </p>
+        </div>
+        <div class="col-md-6 text-center my-2">
+          <h3>Reducing attack surface to stop attacks</h3>
+          <img class="bandit w-100" src="images/before.jpg" />
+        </div>
+        <div class="col-md-6 text-center my-2">
+          <h3>User installs a dubious software from the internet</h3>
+          <img class="bandit w-100" src="images/after.jpg" />
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"></script>
+    <script src="script.min.js"></script>
+  </body>
+</html>

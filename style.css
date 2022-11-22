@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro&family=Ubuntu");
+
+html,
+h1,
+h2,
+h3,
+h4,
+p,
+a,
+button {
+  font-family: "Source Sans Pro", "Ubuntu", sans-serif !important;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: #161e2d;
+  color: white;
+}
+.logo {
+  max-height: 80px;
+}
+.wrapper {
+  border: 1px solid;
+  border-radius: 10px;
+  background: #212c42;
+}
+.section-header {
+  border-bottom: 1px solid;
+}
+.section-header h3:first-child {
+  border-right: 1px solid;
+}
+.section p:first-child {
+  border-right: 1px dotted;
+}
+.section {
+  border-bottom: 1px solid;
+}
+.section .free {
+  cursor: grab;
+  border: 1px solid #212c42;
+  transition: 0.3s ease-in-out;
+}
+.section .free:hover {
+  background-color: #454e6087;
+  border: 1px solid;
+}
+.section.correct {
+  background: #3bc81e;
+  border-radius: 8px;
+}
+.section.correct .free {
+  border: 1px solid #3bc81e;
+}
+.logo {
+  max-height: 80px;
+}
+.question-count-block {
+  color: #c4c6ca;
+}
+.cursor-pointer {
+  cursor: pointer !important;
+}
+.flag-container {
+  background-color: #161e2d;
+  border: 1px solid white;
+  color: white;
+  border-radius: 0.5rem;
+}
+.flag-header {
+  color: white;
+  border-bottom: 1px solid white;
+  padding: 0.5rem 1rem;
+}
+.flag-content {
+  padding: 1rem 1rem;
+}
+
+.bandit {
+  max-height: 300px;
+}

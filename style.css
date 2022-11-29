@@ -102,3 +102,7 @@ body {
   transform: skew(8deg, 40deg);
   margin-left: -10px;
 }
+.reward img {
+  border: 1px solid;
+  border-radius: 10px;
+}

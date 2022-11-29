@@ -187,6 +187,7 @@ const init = () => {
         count += checkPiece(selected, target);
         count += checkPiece(pieceToSwap, selectedParent);
 
+        setTimeout(() => checkWin(), 100);
         if (count) {
           // add shield
           addShield();
@@ -194,8 +195,6 @@ const init = () => {
         }
         await attack();
       }
-
-      setTimeout(() => checkWin(), 100);
     });
   });
 };

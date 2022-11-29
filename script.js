@@ -108,7 +108,7 @@ const queue = (fn, ms = 500) => {
 
 const attack = async () => {
   await queue(() => (yeti.src = yetiUpSrc));
-  await queue(() => (yeti.src = yetiReleaseSrc));
+  // await queue(() => (yeti.src = yetiReleaseSrc));
   await queue(() => {
     const shields = shieldContainer.children.length;
     let left = 0;

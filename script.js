@@ -3,6 +3,20 @@
  * Email: zariab64@gmail.com
  * Date: 11/22/22
  */
+const yeti = document.getElementById("yeti");
+const arrow = document.getElementById("arrow");
+const mcskidy = document.getElementById("mcskidy");
+const shieldContainer = document.getElementById("shields");
+let selectedElement;
+
+const shield = '<img class="h-100" src="images/shield.png"/>';
+// paths
+const yetiDownSrc = "images/Yeti with bow and arrow down.png";
+const yetiUpSrc = "images/Yeti with bow and arrow up.png";
+const yetiReleaseSrc = "images/Yeti releasing bow and arrow.png";
+const mcskidySrc = "images/McSkidy calm.png";
+const mcskidyHitSrc = "images/McSkidy been shot.png";
+
 const attacks = [
   "Bandit Yeti has identified an open SSH port on Santa’s webserver.",
   "A document file with malicious macros is opened by a user",
@@ -38,15 +52,20 @@ const template = num => {
 </div>`;
 };
 
-let selectedElement;
+const addShield = () => {
+  $(shieldContainer).append(shield);
+};
 
 // check if piece is in correct position
 const checkPiece = (piece, parent) => {
   if ($(piece).data("position") === $(parent).data("position")) {
     $(parent).addClass("correct");
+    return true;
   } else if (parent.hasClass("correct")) {
     $(parent).removeClass("correct");
   }
+
+  return false;
 };
 
 // check if all pieces are in correct place
@@ -70,6 +89,53 @@ const checkWin = () => {
 
   $("#content").addClass("d-none");
   $("#reward").removeClass("d-none");
+};
+
+const addShields = (count = 1) => {
+  for (let i = 0; i < count; i++) {
+    addShield();
+  }
+};
+
+const queue = (fn, ms = 500) => {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      fn();
+      resolve(true);
+    }, ms);
+  });
+};
+
+const attack = async () => {
+  await queue(() => (yeti.src = yetiUpSrc));
+  await queue(() => (yeti.src = yetiReleaseSrc));
+  await queue(() => {
+    const shields = shieldContainer.children.length;
+    let left = 0;
+    if (shields) {
+      // pick first shield as reference for arrow hit
+      const firstShield = shieldContainer.children[0];
+      left = shieldContainer.offsetLeft - firstShield.clientWidth;
+    } else {
+      // pick mcskidy as reference for arrow hit
+      left = mcskidy.offsetLeft - mcskidy.clientWidth;
+    }
+
+    arrow.classList.remove("d-none");
+    setTimeout(() => (arrow.style.left = `${left}px`), 0);
+  });
+  await queue(() => (yeti.src = yetiDownSrc));
+  await queue(() => {
+    arrow.classList.add("d-none");
+    arrow.style.left = `60px`;
+    if (shieldContainer.children.length) {
+      // remove shield
+      shieldContainer.removeChild(shieldContainer.children[0]);
+    } else {
+      // hit mcskidy
+      mcskidy.src = mcskidyHitSrc;
+    }
+  }, 1000);
 };
 
 // create matching column
@@ -103,7 +169,7 @@ const init = () => {
     });
 
     // user starts drop event
-    gridTiles[i].addEventListener("drop", event => {
+    gridTiles[i].addEventListener("drop", async event => {
       const selected = $("#" + selectedElement);
       const target = $(event.target).hasClass("free")
         ? $(event.target).closest(".section")
@@ -117,8 +183,16 @@ const init = () => {
         pieceToSwap.appendTo(selectedParent);
         selected.appendTo(target);
 
-        checkPiece(selected, target);
-        checkPiece(pieceToSwap, selectedParent);
+        let count = 0;
+        count += checkPiece(selected, target);
+        count += checkPiece(pieceToSwap, selectedParent);
+
+        if (count) {
+          // add shield
+          addShield();
+          mcskidy.src = mcskidySrc;
+        }
+        await attack();
       }
 
       setTimeout(() => checkWin(), 100);
@@ -126,4 +200,13 @@ const init = () => {
   });
 };
 
-init();
+$(
+  (async function() {
+    // init the match the column
+    init();
+    // init shields
+    addShields(4);
+    // init first attack
+    await attack();
+  })()
+);

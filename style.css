@@ -80,7 +80,25 @@ body {
 .flag-content {
   padding: 1rem 1rem;
 }
-
 .bandit {
   max-height: 300px;
+}
+.war-zone {
+  height: 100px;
+}
+.arrow {
+  position: absolute;
+  left: 60px;
+  width: 101px;
+  transition: 1s ease-out;
+  z-index: 1;
+}
+.shields {
+  height: 70px;
+  position: absolute;
+  right: 50px;
+}
+.shields img {
+  transform: skew(8deg, 40deg);
+  margin-left: -10px;
 }

@@ -35,18 +35,26 @@ body {
 .section-header h3:first-child {
   border-right: 1px solid;
 }
-.section p:first-child {
+.section .static {
   border-right: 1px dotted;
 }
 .section {
   border-bottom: 1px solid;
 }
-.section .free {
-  cursor: grab;
-  border: 1px solid #212c42;
-  transition: 0.3s ease-in-out;
+.section:last-child {
+  border-bottom: 0;
 }
-.section .free:hover {
+.free-child {
+  cursor: grab;
+  transition: 0.3s ease-in-out;
+  margin-left: 0.5rem;
+  border: 1px solid #212c42;
+}
+.asrs .free-child {
+  margin-left: 0;
+  border: 1px solid;
+}
+.free-child:hover {
   background-color: #454e6087;
   border: 1px solid;
 }
@@ -54,8 +62,11 @@ body {
   background: #3bc81e;
   border-radius: 8px;
 }
-.section.correct .free {
+.section.correct .free-child {
   border: 1px solid #3bc81e;
+}
+.section.correct .free-child:hover {
+  background-color: transparent;
 }
 .logo {
   max-height: 80px;
@@ -84,25 +95,58 @@ body {
   max-height: 300px;
 }
 .war-zone {
-  height: 100px;
+  height: 200px;
 }
 .arrow {
   position: absolute;
-  left: 60px;
+  left: 116px;
+  top: 37px;
   width: 101px;
   transition: 1s ease-out;
   z-index: 1;
 }
-.shields {
-  height: 70px;
-  position: absolute;
-  right: 50px;
-}
-.shields img {
+.shield {
   transform: skew(8deg, 40deg);
   margin-left: -10px;
+  height: 35px;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 .reward img {
   border: 1px solid;
   border-radius: 10px;
+}
+.mcskidy {
+  height: 110px;
+}
+.mcskidy .shield:nth-child(6) {
+  transform: skew(8deg, -40deg);
+  z-index: 5;
+}
+.mcskidy .shield:nth-child(5) {
+  top: 20px;
+  z-index: 6;
+}
+.mcskidy .shield:nth-child(4) {
+  left: -10px;
+  transform: skew(8deg, -40deg);
+  top: 25px;
+  z-index: 1;
+}
+.mcskidy .shield:nth-child(3) {
+  left: -10px;
+  top: 45px;
+  z-index: 2;
+}
+.mcskidy .shield:nth-child(2) {
+  left: 5px;
+  transform: skew(8deg, -40deg);
+  top: 55px;
+  z-index: 3;
+}
+.mcskidy .shield:nth-child(1) {
+  left: 5px;
+  top: 70px;
+  z-index: 4;
 }

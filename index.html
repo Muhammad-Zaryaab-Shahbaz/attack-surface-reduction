@@ -46,19 +46,6 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
     />
     <link rel="stylesheet" href="style.css" />
-    <!-- <link
-      rel="preload"
-      as="image"
-      href="images/Yeti with bow and arrow up.png"
-    />
-    <link
-      rel="preload"
-      as="image"
-      href="images/Yeti releasing bow and arrow.png"
-    />
-    <link rel="preload" as="image" href="images/McSkidy been shot.png" />
-    <link rel="preload" as="image" href="images/Arrow.png" />
-    <link rel="preload" as="image" href="images/Arrow moving.png" /> -->
   </head>
   <body>
     <div id="content" class="container py-4">
@@ -77,12 +64,13 @@
           <p class="text-center">
             It's time to save <b>Blue team Elf</b> from <b>Bandit Yeti</b>. Each
             correct answer will add armour to the Blue team Elf which will
-            protect against the arrows of Bandit Yeti.
+            protect against the arrows of Bandit Yeti. Add six shields to
+            protect Elf.
             <u>Only you can save the Elf now!</u>
           </p>
           <p class="text-center">
             Match the attack vector with the relevant ASR Technique by moving
-            the ASR Technique up/down.
+            the ASR Technique in the correct right column.
           </p>
         </div>
         <div class="col-md-12 text-center">
@@ -100,8 +88,18 @@
               id="arrow"
               src="images/Arrow moving.png"
             />
-            <div class="shields" id="shields"></div>
-            <img class="h-100" id="mcskidy" src="images/McSkidy calm.png" />
+            <div class="mcskidy position-relative">
+              <img class="h-100" id="mcskidy" src="images/McSkidy calm.png" />
+
+              <div class="shields" id="shields">
+                <!-- <img class="shield" src="images/shield.png" />
+                <img class="shield" src="images/shield.png" />
+                <img class="shield" src="images/shield.png" />
+                <img class="shield" src="images/shield.png" />
+                <img class="shield" src="images/shield.png" />
+                <img class="shield" src="images/shield.png" /> -->
+              </div>
+            </div>
           </div>
         </div>
         <div
@@ -119,6 +117,7 @@
           </div>
         </div>
       </div>
+      <div class="asrs row mt-2" id="asrs"></div>
     </div>
 
     <div id="reward" class="reward container py-4 d-none">
@@ -143,6 +142,8 @@
             successful attack
           </p>
         </div>
+      </div>
+      <div class="row">
         <div class="col-md-6 text-center my-2">
           <h3>Reducing attack surface to stop attacks</h3>
           <img class="bandit w-100" src="images/before.jpg" />

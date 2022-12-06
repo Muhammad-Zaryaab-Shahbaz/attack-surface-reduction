@@ -78,10 +78,6 @@ const checkPiece = (piece, parent) => {
       .parent()
       .addClass("correct");
     return true;
-  } else if (parent.find(".correct")) {
-    $(parent)
-      .parent()
-      .removeClass("correct");
   }
 
   return false;
@@ -106,6 +102,10 @@ const checkWin = () => {
   const flag = document.getElementById("flag");
   flag.innerText = atob(flag.innerText);
 
+  $("#next-btn").removeClass("d-none");
+};
+
+const nextBtnClick = () => {
   $("#content").addClass("d-none");
   $("#reward").removeClass("d-none");
 };
@@ -125,30 +125,44 @@ const queue = (fn, ms = 500) => {
   });
 };
 
+const yetiUp = () => {
+  yeti.src = yetiUpSrc;
+  yeti.classList.remove("down");
+};
+
+const yetiRelease = () => {
+  yeti.src = yetiReleaseSrc;
+  yeti.classList.add("release");
+};
+
+const yetiDown = () => {
+  yeti.classList.add("down");
+  yeti.classList.remove("release");
+  yeti.src = yetiDownSrc;
+};
+
 const attack = async () => {
-  await queue(() => (yeti.src = yetiUpSrc));
-  await queue(() => (yeti.src = yetiReleaseSrc));
+  const shields = shieldContainer.children.length;
+  await queue(() => yetiUp());
+  await queue(() => yetiRelease());
   await queue(() => {
-    const shields = shieldContainer.children.length;
-    let left = 0;
-    if (shields === 6) {
-      // pick first shield as reference for arrow hit
-      const firstShield = shieldContainer.children[0];
-      left = shieldContainer.offsetLeft - firstShield.clientWidth;
-    } else {
+    let left = mcskidy.parentElement.offsetLeft - mcskidy.clientWidth;
+    if (shields !== 6) {
       // pick mcskidy as reference for arrow hit
-      left = mcskidy.parentElement.offsetLeft - mcskidy.clientWidth + 30;
+      left += 30;
     }
 
-    yeti.src = yetiDownSrc;
+    yetiDown();
     arrow.classList.remove("d-none");
     setTimeout(() => (arrow.style.left = `${left}px`), 0);
   });
   await queue(() => {
     arrow.classList.add("d-none");
     arrow.style.left = `116px`;
-    // hit mcskidy
-    mcskidy.src = mcskidyHitSrc;
+    if (shields !== 6) {
+      // hit mcskidy
+      mcskidy.src = mcskidyHitSrc;
+    }
   }, 1000);
   await queue(() => (mcskidy.src = mcskidySrc));
 };
@@ -212,8 +226,12 @@ const init = () => {
         const pieceToSwap = $(target).find(".free-child");
         const selectedParent = selected.parent();
 
-        pieceToSwap.appendTo(selectedParent);
-        selected.appendTo(target);
+        if (checkPiece(pieceToSwap, selectedParent)) {
+          pieceToSwap.appendTo(selectedParent);
+        }
+        if (checkPiece(selected, $(target))) {
+          selected.appendTo(target);
+        }
 
         count += checkPiece(pieceToSwap, selectedParent);
         count += checkPiece(selected, $(target));
@@ -236,7 +254,7 @@ $(
     // init the match the column
     init();
     // init shields
-    // addShields(4);
+    // addShields(6);
     // init first attack
     await attack();
     const intervalId = setInterval(async () => {

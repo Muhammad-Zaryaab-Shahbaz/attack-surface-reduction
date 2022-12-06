@@ -95,20 +95,20 @@ body {
   max-height: 300px;
 }
 .war-zone {
-  height: 200px;
+  height: 350px;
 }
 .arrow {
   position: absolute;
-  left: 116px;
-  top: 37px;
-  width: 101px;
+  left: 126px;
+  top: 53px;
+  width: 200px;
   transition: 1s ease-out;
   z-index: 1;
 }
 .shield {
   transform: skew(8deg, 40deg);
-  margin-left: -10px;
-  height: 35px;
+  margin-left: -20px;
+  height: 80px;
   position: absolute;
   left: 0;
   top: 0;
@@ -118,35 +118,57 @@ body {
   border-radius: 10px;
 }
 .mcskidy {
-  height: 110px;
+  height: 200px;
 }
 .mcskidy .shield:nth-child(6) {
-  transform: skew(8deg, -40deg);
+  transform: skew(8deg, -45deg);
+  top: 8px;
   z-index: 5;
 }
 .mcskidy .shield:nth-child(5) {
-  top: 20px;
+  top: 40px;
   z-index: 6;
+  left: -3px;
 }
 .mcskidy .shield:nth-child(4) {
-  left: -10px;
-  transform: skew(8deg, -40deg);
-  top: 25px;
+  left: 18px;
+  transform: skew(2deg, -45deg);
+  top: 55px;
   z-index: 1;
 }
 .mcskidy .shield:nth-child(3) {
-  left: -10px;
-  top: 45px;
-  z-index: 2;
+  left: 10px;
+  top: 78px;
+  z-index: 4;
 }
 .mcskidy .shield:nth-child(2) {
-  left: 5px;
-  transform: skew(8deg, -40deg);
-  top: 55px;
+  left: 30px;
+  transform: skew(2deg, -45deg);
+  top: 103px;
   z-index: 3;
 }
 .mcskidy .shield:nth-child(1) {
-  left: 5px;
-  top: 70px;
+  left: 26px;
+  top: 130px;
+  z-index: 4;
+}
+.yeti.down {
+  margin-left: -91px;
+  height: 353px !important;
+  margin-bottom: -18px;
+}
+.yeti.release {
+  margin-left: -10px;
+  height: 331px !important;
+  margin-bottom: 21px;
+}
+.next {
+  background: #3bc81e;
+}
+.next:hover {
+  background: #32971d;
+  outline: 1px solid #d4d8df;
+}
+#mcskidy {
   z-index: 4;
 }

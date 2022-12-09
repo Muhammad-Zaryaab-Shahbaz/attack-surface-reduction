@@ -19,30 +19,34 @@ const mcskidyHitSrc = "images/McSkidy been shot.png";
 
 const attacks = [
   "Bandit Yeti has identified an open SSH port on Santa’s webserver.",
-  "A document file with malicious macros is opened by a user",
-  "Some sensitive data related to Santa’s server is found on a filesharing website",
-  "Spoofed phishing emails are sent to Santa’s employees",
-  "Password brute forcing attack is attempted on Santa's",
-  "Santa’s employee finds a USB in the parking lot that has malware and he plugs it in his system and gets compromised",
+  "A document file with malicious macros is opened by a user.",
+  "Some sensitive data related to Santa’s server is found on a filesharing website.",
+  "Spoofed phishing emails are sent to Santa's employees.",
+  "Password brute-forcing attack is attempted on Santa's account.",
+  "Santa’s employee finds a USB flash drive in the parking lot; after he plugs it into his computer, malware installs on the machine.",
 ];
 const asr = [
   {
     id: 2,
     value:
-      "Sensitive data from the file-sharing site is removed to avoid Bandit Yeti taking advantage of that data",
+      "Sensitive data from the file-sharing site is removed to avoid Bandit Yeti taking advantage of that data.",
   },
-  { id: 0, value: "Unnecessary ports are closed to avoid attack attempts" },
+  { id: 0, value: "Unnecessary ports are closed to avoid attack attempts." },
   {
     id: 4,
-    value: "Strong password policy is enabled to thwart brute force attacks",
+    value: "Strong password policy is enabled to thwart brute force attacks.",
   },
-  { id: 1, value: "Macros are blocked on the Santa's network by policy" },
+  {
+    id: 1,
+    value:
+      "Security policies are implemented to block macros on Santa's network.",
+  },
   {
     id: 5,
     value:
       "Applocker is deployed network-wide to block execution of unknown/non-whitelisted applications.",
   },
-  { id: 3, value: "Phishing protection is enabled on Santa’s email server" },
+  { id: 3, value: "Phishing protection is enabled on Santa’s email server." },
 ];
 
 const template = num => {

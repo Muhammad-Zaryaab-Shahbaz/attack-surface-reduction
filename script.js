@@ -20,7 +20,7 @@ const mcskidyHitSrc = "images/McSkidy been shot.png";
 const attacks = [
   "Bandit Yeti has identified an open SSH port on Santa’s webserver.",
   "A document file with malicious macros is opened by a user.",
-  "Some sensitive data related to Santa’s server is found on a filesharing website.",
+  "Some sensitive data related to Santa’s server is found on a file-sharing website.",
   "Spoofed phishing emails are sent to Santa's employees.",
   "Password brute-forcing attack is attempted on Santa's account.",
   "Santa’s employee finds a USB flash drive in the parking lot; after he plugs it into his computer, malware installs on the machine.",
